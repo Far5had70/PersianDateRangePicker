@@ -152,6 +152,11 @@ public class PersianDateRangePicker extends DialogFragment implements View.OnCli
             CanselTxt.setTextColor(ButtonTextColor);
         }
 
+        if (typeface != null){
+            DoneTxt.setTypeface(typeface);
+            CanselTxt.setTypeface(typeface);
+        }
+
         if (TabTextColor != -1 && TabSelectedTextColor != -1 && TabIndicatorColor != -1) {
             tabLayout.setTabTextColors(TabTextColor , TabSelectedTextColor);
             tabLayout.setSelectedTabIndicatorColor(TabIndicatorColor);

@@ -12,8 +12,6 @@ import android.widget.Toast;
 import com.waspar.persiandatepicker.PersianDateRangePicker;
 import com.waspar.persiandatepicker.util.InitDate;
 
-import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
-
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -60,10 +58,5 @@ public class MainActivity extends AppCompatActivity {
                 });
         persianDateRangePicker.show(fragmentManager,"PersianDateRangePicker");
 
-    }
-
-    @Override
-    protected void attachBaseContext(Context newBase) {
-        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
     }
 }
