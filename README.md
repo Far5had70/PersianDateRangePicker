@@ -1,4 +1,4 @@
-# PersianDateRangePicker
+# Persian Date Range Picker
 
 <img src="https://raw.githubusercontent.com/Far5had70/PersianDateRangePicker/master/screen-record.gif" height="480" width="270">
 
