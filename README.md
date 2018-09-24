@@ -23,22 +23,23 @@ Step 1. Add the JitPack repository to your build file
 
 
 Add it in your root build.gradle at the end of repositories:
-    ```gradle
+
+```gradle
 	dependencies {
 	        implementation 'com.github.Far5had70:PersianDateRangePicker:2.0.0'
 	}
-	```
+```
 
 
 Step 2. Add the dependency
-    ```gradle
+```gradle
 	allprojects {
 		repositories {
 			...
 			maven { url 'https://jitpack.io' }
 		}
 	}
-	```
+```
 
 
 
@@ -56,7 +57,7 @@ You can try it out here [Sample Application](https://github.com/Far5had70/Persia
 
 ## Date Range Picker:
 
-        ```java
+```java
         Typeface face = Typeface.createFromAsset(getAssets(), "bsans.ttf");
         FragmentManager fragmentManager = getSupportFragmentManager();
         PersianDateRangePicker persianDateRangePicker = new PersianDateRangePicker(
@@ -83,13 +84,13 @@ You can try it out here [Sample Application](https://github.com/Far5had70/Persia
                     }
                 });
         persianDateRangePicker.show(fragmentManager,"PersianDateRangePicker");
-       ```
+```
 
 
 
 ## Date Picker:
 
-        ```java
+```java
         Typeface face = Typeface.createFromAsset(getAssets(), "bsans.ttf");
         FragmentManager fragmentManager = getSupportFragmentManager();
         PersianDatePicker persianDateRangePicker = new PersianDatePicker(
@@ -110,7 +111,7 @@ You can try it out here [Sample Application](https://github.com/Far5had70/Persia
                     }
                 });
         persianDateRangePicker.show(fragmentManager,"PersianDateRangePicker");
-        ```
+```
 
 
 
