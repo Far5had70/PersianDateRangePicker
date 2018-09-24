@@ -21,7 +21,7 @@ Step 1. Add the JitPack repository to your build file
 Add it in your root build.gradle at the end of repositories:
 
 	dependencies {
-	        implementation 'com.github.Far5had70:PersianDateRangePicker:1.2.0'
+	        implementation 'com.github.Far5had70:PersianDateRangePicker:2.0.0'
 	}
 	
 Step 2. Add the dependency
