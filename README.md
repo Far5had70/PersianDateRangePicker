@@ -4,6 +4,8 @@
 
  PersianDateRangePicker is a dynamic library that allows user to select a date range.
 
+
+
 # Features
 
 Background (color)
@@ -14,16 +16,19 @@ TypeFace(directory: Assets/sampleFont.ttf)
 
 
 
+
 # Installation
 
 Step 1. Add the JitPack repository to your build file
+
 
 Add it in your root build.gradle at the end of repositories:
 
 	dependencies {
 	        implementation 'com.github.Far5had70:PersianDateRangePicker:2.0.0'
 	}
-	
+
+
 Step 2. Add the dependency
 
 	allprojects {
@@ -34,11 +39,18 @@ Step 2. Add the dependency
 	}
 
 
+
+
 ## Demo
+
 You can try it out here [Sample Application](https://github.com/Far5had70/PersianDateRangePicker/blob/master/app/src/main/java/com/shaygan/datepicker/MainActivity.java)
 
 
+
+
 # Usage
+
+
 
 ## Date Range Picker:
 
@@ -70,6 +82,8 @@ You can try it out here [Sample Application](https://github.com/Far5had70/Persia
         persianDateRangePicker.show(fragmentManager,"PersianDateRangePicker");
        
 
+
+
 ## Date Picker:
 
         Typeface face = Typeface.createFromAsset(getAssets(), "bsans.ttf");
@@ -92,6 +106,8 @@ You can try it out here [Sample Application](https://github.com/Far5had70/Persia
                     }
                 });
         persianDateRangePicker.show(fragmentManager,"PersianDateRangePicker");
+
+
 
 
 # Developed By
