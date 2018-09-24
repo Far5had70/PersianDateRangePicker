@@ -55,7 +55,7 @@ You can try it out here [Sample Application](https://github.com/Far5had70/Persia
 
 
 
-## Date Range Picker:
+**Date Range Picker:**
 
 ```java
         Typeface face = Typeface.createFromAsset(getAssets(), "bsans.ttf");
@@ -88,7 +88,7 @@ You can try it out here [Sample Application](https://github.com/Far5had70/Persia
 
 
 
-## Date Picker:
+**Date Picker:**
 
 ```java
         Typeface face = Typeface.createFromAsset(getAssets(), "bsans.ttf");
