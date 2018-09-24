@@ -72,16 +72,16 @@ Step 2. Add the dependency
         Typeface face = Typeface.createFromAsset(getAssets(), "bsans.ttf");
         FragmentManager fragmentManager = getSupportFragmentManager();
         PersianDatePicker persianDateRangePicker = new PersianDatePicker(
-                InitDate.inputPersianDate(1 , 1 , 1397) ,
-                getResources().getColor(R.color.green) ,
-                getResources().getColor(R.color.white) ,
-                getResources().getColor(R.color.white) ,
-                getResources().getColor(R.color.white) ,
-                getResources().getColor(R.color.white) ,
-                getResources().getColor(R.color.white_smoke) ,
-                getResources().getColor(R.color.white) ,
-                20 ,
-                face ,
+                InitDate.inputPersianDate(1 , 1 , 1397) ,  // Init Date
+                getResources().getColor(R.color.green) ,  // Background Color
+                getResources().getColor(R.color.white) ,  // Button Text Color
+                getResources().getColor(R.color.white) ,  // Tab Text Color
+                getResources().getColor(R.color.white) ,  // Tab Selected Text Color
+                getResources().getColor(R.color.white) ,  // Tab Indicator Color
+                getResources().getColor(R.color.white_smoke) ,  // Wheel Text Color
+                getResources().getColor(R.color.white) ,  // Wheel Text Color Selected
+                20 ,  // Wheel Text Size
+                face ,  // type face
                 new PersianDatePicker.PickDate() {
                     @Override
                     public void Date(int day, int month, int year) {
