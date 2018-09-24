@@ -34,6 +34,9 @@ Step 2. Add the dependency
 	}
 
 
+## Demo
+You can try it out here [Sample Application](https://github.com/Far5had70/PersianDateRangePicker/blob/master/app/src/main/java/com/shaygan/datepicker/MainActivity.java)
+
 
 # Usage
 
