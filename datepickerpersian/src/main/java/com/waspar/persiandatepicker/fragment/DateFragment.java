@@ -13,20 +13,20 @@ import com.waspar.persiandatepicker.wheel.WheelPickerView;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.waspar.persiandatepicker.PersianDateRangePicker.WheelTextColor;
-import static com.waspar.persiandatepicker.PersianDateRangePicker.WheelTextColorSelected;
-import static com.waspar.persiandatepicker.PersianDateRangePicker.WheelTextSize;
-import static com.waspar.persiandatepicker.PersianDateRangePicker.day;
-import static com.waspar.persiandatepicker.PersianDateRangePicker.month;
-import static com.waspar.persiandatepicker.PersianDateRangePicker.year;
+import static com.waspar.persiandatepicker.PersianDatePicker.WheelTextColor;
+import static com.waspar.persiandatepicker.PersianDatePicker.WheelTextColorSelected;
+import static com.waspar.persiandatepicker.PersianDatePicker.WheelTextSize;
+import static com.waspar.persiandatepicker.PersianDatePicker.day;
+import static com.waspar.persiandatepicker.PersianDatePicker.month;
+import static com.waspar.persiandatepicker.PersianDatePicker.year;
 
-public class FromDateFragment extends Fragment {
+public class DateFragment extends Fragment {
 
     private WheelPickerView Day_WheelPicker, Month_WheelPicker, Year_WheelPicker;
     ShamsiDate shamsiDate = new ShamsiDate();
 
-    public static FromDateFragment newInstance() {
-        FromDateFragment fragment = new FromDateFragment();
+    public static DateFragment newInstance() {
+        DateFragment fragment = new DateFragment();
         return fragment;
     }
 

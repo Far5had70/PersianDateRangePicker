@@ -22,7 +22,7 @@ import static com.waspar.persiandatepicker.PersianDateRangePicker.yearUntil;
 
 public class TillDateFragment extends Fragment {
 
-    private WheelPickerView Day_Recyclerview, Month_Recyclerview, Year_Recyclerview;
+    private WheelPickerView Day_WheelPicker, Month_WheelPicker, Year_WheelPicker;
     ShamsiDate shamsiDate = new ShamsiDate();
 
     public static TillDateFragment newInstance() {
@@ -51,21 +51,21 @@ public class TillDateFragment extends Fragment {
 
 
         if (WheelTextColor != -1) {
-            Day_Recyclerview.settextColor(WheelTextColor);
-            Month_Recyclerview.settextColor(WheelTextColor);
-            Year_Recyclerview.settextColor(WheelTextColor);
+            Day_WheelPicker.settextColor(WheelTextColor);
+            Month_WheelPicker.settextColor(WheelTextColor);
+            Year_WheelPicker.settextColor(WheelTextColor);
         }
 
         if (WheelTextColorSelected != -1) {
-            Day_Recyclerview.setTextColorSelected(WheelTextColorSelected);
-            Month_Recyclerview.setTextColorSelected(WheelTextColorSelected);
-            Year_Recyclerview.setTextColorSelected(WheelTextColorSelected);
+            Day_WheelPicker.setTextColorSelected(WheelTextColorSelected);
+            Month_WheelPicker.setTextColorSelected(WheelTextColorSelected);
+            Year_WheelPicker.setTextColorSelected(WheelTextColorSelected);
         }
 
         if (WheelTextSize != -1) {
-            Day_Recyclerview.setTextSize(WheelTextSize*3);
-            Month_Recyclerview.setTextSize(WheelTextSize*3);
-            Year_Recyclerview.setTextSize(WheelTextSize*3);
+            Day_WheelPicker.setTextSize(WheelTextSize*3);
+            Month_WheelPicker.setTextSize(WheelTextSize*3);
+            Year_WheelPicker.setTextSize(WheelTextSize*3);
         }
     }
 
@@ -87,10 +87,10 @@ public class TillDateFragment extends Fragment {
                 ii = i-1;
             }
         }
-        Day_Recyclerview.setPicker(strings);
-        Day_Recyclerview.setCurrentItems(ii);
-        Day_Recyclerview.setCyclic(true);
-        Day_Recyclerview.setOnOptionChangedListener(new WheelPickerView.OnOptionChangedListener() {
+        Day_WheelPicker.setPicker(strings);
+        Day_WheelPicker.setCurrentItems(ii);
+        Day_WheelPicker.setCyclic(true);
+        Day_WheelPicker.setOnOptionChangedListener(new WheelPickerView.OnOptionChangedListener() {
             @Override
             public void onOptionChanged(WheelPickerView view, int option) {
                 dayUntil = strings.get(option);
@@ -115,10 +115,10 @@ public class TillDateFragment extends Fragment {
         strings.add("اسفند");
         int ii = Integer.parseInt(month);
         ii = ii-1;
-        Month_Recyclerview.setPicker(strings);
-        Month_Recyclerview.setCurrentItems(ii);
-        Month_Recyclerview.setCyclic(true);
-        Month_Recyclerview.setOnOptionChangedListener(new WheelPickerView.OnOptionChangedListener() {
+        Month_WheelPicker.setPicker(strings);
+        Month_WheelPicker.setCurrentItems(ii);
+        Month_WheelPicker.setCyclic(true);
+        Month_WheelPicker.setOnOptionChangedListener(new WheelPickerView.OnOptionChangedListener() {
             @Override
             public void onOptionChanged(WheelPickerView view, int option) {
                 monthUntil = String.valueOf(option+1);
@@ -137,10 +137,10 @@ public class TillDateFragment extends Fragment {
                 ii = i-(shamsiDate.getCurrentShamsiyear()-100);
             }
         }
-        Year_Recyclerview.setPicker(strings);
-        Year_Recyclerview.setCurrentItems(ii);
-        Year_Recyclerview.setCyclic(true);
-        Year_Recyclerview.setOnOptionChangedListener(new WheelPickerView.OnOptionChangedListener() {
+        Year_WheelPicker.setPicker(strings);
+        Year_WheelPicker.setCurrentItems(ii);
+        Year_WheelPicker.setCyclic(true);
+        Year_WheelPicker.setOnOptionChangedListener(new WheelPickerView.OnOptionChangedListener() {
             @Override
             public void onOptionChanged(WheelPickerView view, int option) {
                 yearUntil = strings.get(option);
@@ -149,9 +149,9 @@ public class TillDateFragment extends Fragment {
     }
 
     private void init(View view) {
-        Day_Recyclerview = view.findViewById(R.id.wheelPickerDay);
-        Month_Recyclerview = view.findViewById(R.id.wheelPickerMonth);
-        Year_Recyclerview = view.findViewById(R.id.wheelPickerYear);
+        Day_WheelPicker = view.findViewById(R.id.wheelPickerDay);
+        Month_WheelPicker = view.findViewById(R.id.wheelPickerMonth);
+        Year_WheelPicker = view.findViewById(R.id.wheelPickerYear);
     }
 
 }

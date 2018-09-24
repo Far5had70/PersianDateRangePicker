@@ -3,33 +3,30 @@ package com.waspar.persiandatepicker;
 import android.annotation.SuppressLint;
 import android.graphics.Typeface;
 import android.graphics.drawable.GradientDrawable;
+import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.DialogFragment;
-import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.TextView;
-
-import com.waspar.persiandatepicker.adapter.TabAdapterDateRangePicker;
+import com.waspar.persiandatepicker.adapter.TabAdapterDatePicker;
 import com.waspar.persiandatepicker.util.ShamsiDate;
 
 @SuppressLint("ValidFragment")
-public class PersianDateRangePicker extends DialogFragment implements View.OnClickListener {
+public class PersianDatePicker extends DialogFragment implements View.OnClickListener {
 
     @SuppressLint("ValidFragment")
-    public PersianDateRangePicker(String initFromDate, String initTillDate, RangeDate rangeDate) {
+    public PersianDatePicker(String initFromDate, PickDate rangeDate) {
         this.rangeDate = rangeDate;
         InitFromDate = initFromDate;
-        InitTillDate = initTillDate;
     }
 
     @SuppressLint("ValidFragment")
-    public PersianDateRangePicker(
+    public PersianDatePicker(
             String initFromDate,
-            String initTillDate,
             int backgroundColor,
             int ButtonTextColor,
             int TabTextColor,
@@ -38,11 +35,10 @@ public class PersianDateRangePicker extends DialogFragment implements View.OnCli
             int WheelTextColor,
             int WheelTextColorSelected,
             int WheelTextSize,
-            RangeDate rangeDate) {
+            PickDate rangeDate) {
 
         this.rangeDate = rangeDate;
         InitFromDate = initFromDate;
-        InitTillDate = initTillDate;
         this.backgroundColor = backgroundColor;
         this.ButtonTextColor = ButtonTextColor;
         this.TabTextColor = TabTextColor;
@@ -54,9 +50,8 @@ public class PersianDateRangePicker extends DialogFragment implements View.OnCli
     }
 
     @SuppressLint("ValidFragment")
-    public PersianDateRangePicker(
+    public PersianDatePicker(
             String initFromDate,
-            String initTillDate,
             int backgroundColor,
             int ButtonTextColor,
             int TabTextColor,
@@ -66,11 +61,10 @@ public class PersianDateRangePicker extends DialogFragment implements View.OnCli
             int WheelTextColorSelected,
             int WheelTextSize,
             Typeface typeface ,
-            RangeDate rangeDate) {
+            PickDate rangeDate) {
 
         this.rangeDate = rangeDate;
         InitFromDate = initFromDate;
-        InitTillDate = initTillDate;
         this.backgroundColor = backgroundColor;
         this.ButtonTextColor = ButtonTextColor;
         this.TabTextColor = TabTextColor;
@@ -83,13 +77,13 @@ public class PersianDateRangePicker extends DialogFragment implements View.OnCli
     }
 
     @SuppressLint("ValidFragment")
-    public PersianDateRangePicker(RangeDate rangeDate) {
+    public PersianDatePicker(PickDate rangeDate) {
         this.rangeDate = rangeDate;
     }
 
     private TabLayout tabLayout;
     private ViewPager viewPager;
-    private TabAdapterDateRangePicker adapter;
+    private TabAdapterDatePicker adapter;
     private View Cansel, Ok;
     private TextView DoneTxt, CanselTxt;
     private ShamsiDate shamsiDate = new ShamsiDate();
@@ -104,32 +98,24 @@ public class PersianDateRangePicker extends DialogFragment implements View.OnCli
     public static int WheelTextColorSelected = -1;
     public static int WheelTextSize = -1;
 
-
     public static Typeface typeface;
 
     public static String day;
     public static String month;
     public static String year;
-    public static String dayUntil;
-    public static String monthUntil;
-    public static String yearUntil;
 
-    private RangeDate rangeDate;
+    private PickDate rangeDate;
     private String InitFromDate;
-    private String InitTillDate;
     private View view, root;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.layout_persian_dare_range_picker, container, false);
+        view = inflater.inflate(R.layout.layout_persian_date_picker, container, false);
         setCorner();
         init(view);
         setupTab();
         if (InitFromDate == null) {
             InitFromDate = shamsiDate.getCurrentShamsidate();
-        }
-        if (InitTillDate == null) {
-            InitTillDate = shamsiDate.getCurrentShamsidate();
         }
 
         if (backgroundColor != -1) {
@@ -161,13 +147,9 @@ public class PersianDateRangePicker extends DialogFragment implements View.OnCli
         }
 
         String[] from = InitFromDate.split("/");
-        String[] till = InitTillDate.split("/");
         day = from[2];
         month = from[1];
         year = from[0];
-        dayUntil = till[2];
-        monthUntil = till[1];
-        yearUntil = till[0];
 
         return view;
     }
@@ -194,7 +176,7 @@ public class PersianDateRangePicker extends DialogFragment implements View.OnCli
         ViewGroup.LayoutParams params = getDialog().getWindow().getAttributes();
         params.width = WindowManager.LayoutParams.MATCH_PARENT - 1;
         params.height = WindowManager.LayoutParams.WRAP_CONTENT;
-        getDialog().getWindow().setAttributes((android.view.WindowManager.LayoutParams) params);
+        getDialog().getWindow().setAttributes((WindowManager.LayoutParams) params);
 
         if (backgroundColor != -1) {
             tabLayout.setBackgroundColor(backgroundColor);
@@ -225,13 +207,12 @@ public class PersianDateRangePicker extends DialogFragment implements View.OnCli
     }
 
     private void okButton() {
-        rangeDate.From(Integer.parseInt(day), Integer.parseInt(month), Integer.parseInt(year));
-        rangeDate.TillDate(Integer.parseInt(dayUntil), Integer.parseInt(monthUntil), Integer.parseInt(yearUntil));
+        rangeDate.Date(Integer.parseInt(day), Integer.parseInt(month), Integer.parseInt(year));
         dismiss();
     }
 
     private void setupTab() {
-        adapter = new TabAdapterDateRangePicker(getChildFragmentManager(), tabLayout.getTabCount());
+        adapter = new TabAdapterDatePicker(getChildFragmentManager(), tabLayout.getTabCount());
         viewPager.setAdapter(adapter);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         viewPager.setCurrentItem(1);
@@ -269,9 +250,7 @@ public class PersianDateRangePicker extends DialogFragment implements View.OnCli
         }
     }
 
-    public interface RangeDate {
-        void From(int day, int month, int year);
-
-        void TillDate(int day, int month, int year);
+    public interface PickDate {
+        void Date(int day, int month, int year);
     }
 }

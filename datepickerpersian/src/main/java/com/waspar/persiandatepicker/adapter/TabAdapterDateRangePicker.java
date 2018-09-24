@@ -7,11 +7,11 @@ import android.support.v4.app.FragmentPagerAdapter;
 import com.waspar.persiandatepicker.fragment.FromDateFragment;
 import com.waspar.persiandatepicker.fragment.TillDateFragment;
 
-public class TabAdapter extends FragmentPagerAdapter {
+public class TabAdapterDateRangePicker extends FragmentPagerAdapter {
 
     private int numOfTabs;
 
-    public TabAdapter(FragmentManager fm, int numOfTabs) {
+    public TabAdapterDateRangePicker(FragmentManager fm, int numOfTabs) {
         super(fm);
         this.numOfTabs = numOfTabs;
     }

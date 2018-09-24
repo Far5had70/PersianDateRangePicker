@@ -23,7 +23,7 @@ public class LoopTimerTask extends TimerTask {
         mLoopView = loopview;
         b = f;
         this.mTimer = timer;
-        a = 2.147484E+09F;
+        a = 5.147484E+02F;
     }
 
     @Override

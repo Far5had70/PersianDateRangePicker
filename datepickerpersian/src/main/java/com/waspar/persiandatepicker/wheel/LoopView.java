@@ -11,8 +11,13 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 
+import com.waspar.persiandatepicker.PersianDatePicker;
+import com.waspar.persiandatepicker.PersianDateRangePicker;
+import com.waspar.persiandatepicker.fragment.DateFragment;
+
 import java.util.List;
 import java.util.Timer;
+
 
 /**
  * LoopView
@@ -113,18 +118,26 @@ public class LoopView extends View {
         paintA = new Paint();
         paintA.setColor(colorGray);
         paintA.setAntiAlias(true);
-        paintA.setTypeface(Typeface.MONOSPACE);
         paintA.setTextSize(textSize);
         paintB = new Paint();
         paintB.setColor(colorBlack);
         paintB.setAntiAlias(true);
         paintB.setTextScaleX(1.05F);
-        paintB.setTypeface(Typeface.MONOSPACE);
+        paintB.setTextSize(textSize);
+        if (PersianDateRangePicker.typeface != null){
+            paintA.setTypeface(PersianDateRangePicker.typeface);
+            paintB.setTypeface(PersianDateRangePicker.typeface);
+//            paintC.setTypeface(typeface);
+        }
+        if (PersianDatePicker.typeface != null){
+            paintA.setTypeface(PersianDatePicker.typeface);
+            paintB.setTypeface(PersianDatePicker.typeface);
+//            paintC.setTypeface(typeface);
+        }
         paintB.setTextSize(textSize);
         paintC = new Paint();
         paintC.setColor(colorGrayLight);
         paintC.setAntiAlias(true);
-        paintC.setTypeface(Typeface.MONOSPACE);
         paintC.setTextSize(textSize);
         if (android.os.Build.VERSION.SDK_INT >= 11) {
             setLayerType(1, null);
