@@ -1,6 +1,6 @@
 # Persian Date Range Picker
 
-<img src="https://raw.githubusercontent.com/Far5had70/PersianDateRangePicker/master/screen-record.gif" height="480" width="270">
+<img src="https://raw.githubusercontent.com/Far5had70/PersianDateRangePicker/master/capture.gif" height="480" width="270">
 
  PersianDateRangePicker is a dynamic library that allows user to select a date range.
 
