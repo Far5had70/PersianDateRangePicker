@@ -37,6 +37,8 @@ Step 2. Add the dependency
 
 # Usage
 
+Date Range Picker:
+
         Typeface face = Typeface.createFromAsset(getAssets(), "bsans.ttf");
         FragmentManager fragmentManager = getSupportFragmentManager();
         PersianDateRangePicker persianDateRangePicker = new PersianDateRangePicker(
@@ -64,6 +66,29 @@ Step 2. Add the dependency
                 });
         persianDateRangePicker.show(fragmentManager,"PersianDateRangePicker");
        
+
+Date Picker:
+
+        Typeface face = Typeface.createFromAsset(getAssets(), "bsans.ttf");
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        PersianDatePicker persianDateRangePicker = new PersianDatePicker(
+                InitDate.inputPersianDate(1 , 1 , 1397) ,
+                getResources().getColor(R.color.green) ,
+                getResources().getColor(R.color.white) ,
+                getResources().getColor(R.color.white) ,
+                getResources().getColor(R.color.white) ,
+                getResources().getColor(R.color.white) ,
+                getResources().getColor(R.color.white_smoke) ,
+                getResources().getColor(R.color.white) ,
+                20 ,
+                face ,
+                new PersianDatePicker.PickDate() {
+                    @Override
+                    public void Date(int day, int month, int year) {
+                        Toast.makeText(MainActivity.this, ""+day+"  "+month+"  "+year, Toast.LENGTH_SHORT).show();
+                    }
+                });
+        persianDateRangePicker.show(fragmentManager,"PersianDateRangePicker");
 
 
 # Developed By
