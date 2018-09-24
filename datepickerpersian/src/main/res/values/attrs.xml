@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="WheelPickerView">
+        <attr name="itemTextSize" format="dimension" />
+        <attr name="itemTextColorr" format="reference" />
+        <attr name="itemTextColorrSelect" format="reference" />
+    </declare-styleable>
+
+</resources>
