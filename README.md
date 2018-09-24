@@ -37,7 +37,7 @@ Step 2. Add the dependency
 
 # Usage
 
-Date Range Picker:
+##Date Range Picker:
 
         Typeface face = Typeface.createFromAsset(getAssets(), "bsans.ttf");
         FragmentManager fragmentManager = getSupportFragmentManager();
@@ -67,7 +67,7 @@ Date Range Picker:
         persianDateRangePicker.show(fragmentManager,"PersianDateRangePicker");
        
 
-Date Picker:
+##Date Picker:
 
         Typeface face = Typeface.createFromAsset(getAssets(), "bsans.ttf");
         FragmentManager fragmentManager = getSupportFragmentManager();
