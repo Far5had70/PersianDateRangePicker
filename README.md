@@ -26,7 +26,7 @@ Add it in your root build.gradle at the end of repositories:
 
 ```gradle
 	dependencies {
-	        implementation 'com.github.Far5had70:PersianDateRangePicker:2.0.0'
+	        implementation 'com.github.Far5had70:PersianDateRangePicker:2.1.0'
 	}
 ```
 
@@ -72,6 +72,10 @@ You can try it out here [Sample Application](https://github.com/Far5had70/Persia
                 getResources().getColor(R.color.white) ,  // Wheel Text Color Selected
                 20 ,  // Wheel Text Size
                 face ,  // type face
+                "تائید", // Done Button Text
+                "انصراف" , // Cansel Button Text
+                getResources().getDrawable(R.drawable.ic_tick),  // Done Button Image
+                getResources().getDrawable(R.drawable.ic_mult),  // Cansel Button Image
                 new PersianDateRangePicker.RangeDate() {
                     @Override
                     public void From(int day, int month, int year) {
@@ -104,6 +108,10 @@ You can try it out here [Sample Application](https://github.com/Far5had70/Persia
                 getResources().getColor(R.color.white) ,  // Wheel Text Color Selected
                 20 ,  // Wheel Text Size
                 face ,  // type face
+                "تائید", // Done Button Text
+                "انصراف" , // Cansel Button Text
+                getResources().getDrawable(R.drawable.ic_tick),  // Done Button Image
+                getResources().getDrawable(R.drawable.ic_mult),  // Cansel Button Image
                 new PersianDatePicker.PickDate() {
                     @Override
                     public void Date(int day, int month, int year) {
