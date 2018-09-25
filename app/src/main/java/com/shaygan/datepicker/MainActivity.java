@@ -52,6 +52,10 @@ public class MainActivity extends AppCompatActivity {
                 getResources().getColor(R.color.white),
                 20,
                 face,
+                "تائید",
+                "بازنشانی" ,
+                getResources().getDrawable(R.drawable.ic_tick),
+                getResources().getDrawable(R.drawable.ic_mult),
                 new PersianDateRangePicker.RangeDate() {
                     @Override
                     public void From(int day, int month, int year) {
@@ -61,6 +65,11 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void TillDate(int day, int month, int year) {
                         Toast.makeText(MainActivity.this, "" + day + "  " + month + "  " + year, Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void cansel() {
+                        Toast.makeText(MainActivity.this, "انصراف", Toast.LENGTH_SHORT).show();
                     }
                 });
         persianDateRangePicker.show(fragmentManager, "PersianDateRangePicker");
