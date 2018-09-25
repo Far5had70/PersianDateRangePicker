@@ -86,6 +86,11 @@ You can try it out here [Sample Application](https://github.com/Far5had70/Persia
                     public void TillDate(int day, int month, int year) {
                         Toast.makeText(MainActivity.this, ""+day+"  "+month+"  "+year, Toast.LENGTH_SHORT).show();
                     }
+
+                    @Override
+                    public void cansel() {
+                        Toast.makeText(MainActivity.this, "Cansel", Toast.LENGTH_SHORT).show();
+                    }
                 });
         persianDateRangePicker.show(fragmentManager,"PersianDateRangePicker");
 ```
@@ -116,6 +121,11 @@ You can try it out here [Sample Application](https://github.com/Far5had70/Persia
                     @Override
                     public void Date(int day, int month, int year) {
                         Toast.makeText(MainActivity.this, ""+day+"  "+month+"  "+year, Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void Cansel() {
+                        Toast.makeText(MainActivity.this, "Cansel", Toast.LENGTH_SHORT).show();
                     }
                 });
         persianDateRangePicker.show(fragmentManager,"PersianDateRangePicker");
