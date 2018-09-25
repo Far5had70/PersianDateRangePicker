@@ -231,8 +231,7 @@ public class PersianDateRangePicker extends DialogFragment implements View.OnCli
             CanselTxt.setTypeface(typeface);
         }
 
-        if (TabTextColor != -1 && TabSelectedTextColor != -1 && TabIndicatorColor != -1) {
-            tabLayout.setTabTextColors(TabTextColor , TabSelectedTextColor);
+        if (TabIndicatorColor != -1) {
             tabLayout.setSelectedTabIndicatorColor(TabIndicatorColor);
         }
 
@@ -359,9 +358,15 @@ public class PersianDateRangePicker extends DialogFragment implements View.OnCli
                 //noinspection ConstantConditions
                 TextView tv = (TextView)LayoutInflater.from(getActivity()).inflate(R.layout.custom_tab_item,null);
                 tv.setTypeface(typeface);
+
+                if (TabTextColor != -1 && TabSelectedTextColor != -1) {
+                    tv.setTextColor(TabTextColor);
+                }
+
                 tabLayout.getTabAt(i).setCustomView(tv);
             }
         }
+
     }
 
     public interface RangeDate {
