@@ -28,7 +28,7 @@ public class LoopTimerTask extends TimerTask {
 
     @Override
     public final void run() {
-        if (a == 2.147484E+09F) {
+        if (a == 5.147484E+02F) {
             if (Math.abs(b) > 2000F) {
                 if (b > 0.0F) {
                     a = 2000F;
