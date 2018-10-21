@@ -26,7 +26,7 @@ Add it in your root build.gradle at the end of repositories:
 
 ```gradle
 	dependencies {
-	        implementation 'com.github.Far5had70:PersianDateRangePicker:2.4.0'
+	        implementation 'com.github.Far5had70:PersianDateRangePicker:2.5.0'
 	}
 ```
 
