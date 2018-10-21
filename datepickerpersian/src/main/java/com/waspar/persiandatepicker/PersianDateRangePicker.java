@@ -155,6 +155,45 @@ public class PersianDateRangePicker extends DialogFragment implements View.OnCli
     }
 
     @SuppressLint("ValidFragment")
+    public PersianDateRangePicker(
+            String initFromDate,
+            String initTillDate,
+            int backgroundColor,
+            int ButtonTextColor,
+            int TabTextColor,
+            int TabSelectedTextColor,
+            int TabIndicatorColor,
+            int WheelTextColor,
+            int WheelTextColorSelected,
+            int WheelTextSize,
+            Typeface typeface ,
+            String DoneText ,
+            String CanselText ,
+            Drawable DoneDrawable ,
+            Drawable CanselDeawable ,
+            int SetCurrentItem ,
+            RangeDate rangeDate) {
+
+        this.rangeDate = rangeDate;
+        InitFromDate = initFromDate;
+        InitTillDate = initTillDate;
+        this.backgroundColor = backgroundColor;
+        this.ButtonTextColor = ButtonTextColor;
+        this.TabTextColor = TabTextColor;
+        this.TabSelectedTextColor = TabSelectedTextColor;
+        this.TabIndicatorColor = TabIndicatorColor;
+        this.WheelTextColor = WheelTextColor;
+        this.WheelTextColorSelected = WheelTextColorSelected;
+        this.WheelTextSize = WheelTextSize;
+        this.typeface = typeface;
+        this.DoneText = DoneText;
+        this.CanselText = CanselText;
+        this.DoneDrawable = DoneDrawable;
+        this.SetCurrentItem = SetCurrentItem;
+        this.CanselDeawable = CanselDeawable;
+    }
+
+    @SuppressLint("ValidFragment")
     public PersianDateRangePicker(RangeDate rangeDate) {
         this.rangeDate = rangeDate;
     }
@@ -177,6 +216,7 @@ public class PersianDateRangePicker extends DialogFragment implements View.OnCli
     public static int WheelTextColor = -1;
     public static int WheelTextColorSelected = -1;
     public static int WheelTextSize = -1;
+    public int SetCurrentItem = 1;
 
     private Drawable DoneDrawable;
     private Drawable CanselDeawable;
@@ -328,7 +368,7 @@ public class PersianDateRangePicker extends DialogFragment implements View.OnCli
         adapter = new TabAdapterDateRangePicker(getChildFragmentManager(), tabLayout.getTabCount());
         viewPager.setAdapter(adapter);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-        viewPager.setCurrentItem(1);
+        viewPager.setCurrentItem(SetCurrentItem);
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {

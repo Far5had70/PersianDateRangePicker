@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.Toast;
 import com.waspar.persiandatepicker.PersianDatePicker;
 import com.waspar.persiandatepicker.PersianDateRangePicker;
+import com.waspar.persiandatepicker.SetCurrentItem;
 import com.waspar.persiandatepicker.util.InitDate;
 
 public class MainActivity extends AppCompatActivity {
@@ -56,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
                 "بازنشانی" ,
                 getResources().getDrawable(R.drawable.ic_tick),
                 getResources().getDrawable(R.drawable.ic_mult),
+                SetCurrentItem.From ,
                 new PersianDateRangePicker.RangeDate() {
                     @Override
                     public void From(int day, int month, int year) {
