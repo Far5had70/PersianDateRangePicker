@@ -76,6 +76,7 @@ You can try it out here [Sample Application](https://github.com/Far5had70/Persia
                 "انصراف" , // Cansel Button Text
                 getResources().getDrawable(R.drawable.ic_tick),  // Done Button Image
                 getResources().getDrawable(R.drawable.ic_mult),  // Cansel Button Image
+                SetCurrentItem.From , // choose which tab to open, after opening the window (SetCurrentItem.From or SetCurrentItem.To)
                 new PersianDateRangePicker.RangeDate() {
                     @Override
                     public void From(int day, int month, int year) {
