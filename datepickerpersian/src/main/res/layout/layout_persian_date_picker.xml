@@ -64,7 +64,7 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:id="@+id/ok"
                 android:padding="7dp"
                 android:layout_toRightOf="@id/view2">
@@ -99,7 +99,7 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:id="@+id/cansel"
                 android:padding="7dp"
                 android:layout_toLeftOf="@id/view2">

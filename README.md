@@ -26,7 +26,7 @@ Add it in your root build.gradle at the end of repositories:
 
 ```gradle
 	dependencies {
-	        implementation 'com.github.Far5had70:PersianDateRangePicker:2.5.0'
+	        implementation 'com.github.Far5had70:PersianDateRangePicker:2.6.0'
 	}
 ```
 
@@ -60,24 +60,24 @@ You can try it out here [Sample Application](https://github.com/Far5had70/Persia
 ```java
         Typeface face = Typeface.createFromAsset(getAssets(), "bsans.ttf");
         FragmentManager fragmentManager = getSupportFragmentManager();
-        PersianDateRangePicker persianDateRangePicker = new PersianDateRangePicker(
-                InitDate.inputPersianDate(1 , 1 , 1397) ,  // InitFromDate
-                InitDate.inputPersianDate(1 , 7 , 1397) ,  // Init Till Date
-                getResources().getColor(R.color.green) ,  // Background Color
-                getResources().getColor(R.color.white) ,  // Button Text Color
-                getResources().getColor(R.color.white) ,  // Tab Text Color
-                getResources().getColor(R.color.white) ,  // Tab Selected Text Color
-                getResources().getColor(R.color.white) ,  // Tab Indicator Color
-                getResources().getColor(R.color.white_smoke) ,  // Wheel Text Color
-                getResources().getColor(R.color.white) ,  // Wheel Text Color Selected
-                20 ,  // Wheel Text Size
-                face ,  // type face
-                "تائید", // Done Button Text
-                "انصراف" , // Cansel Button Text
-                getResources().getDrawable(R.drawable.ic_tick),  // Done Button Image
-                getResources().getDrawable(R.drawable.ic_mult),  // Cansel Button Image
-                SetCurrentItem.From , // choose which tab to open, after opening the window (SetCurrentItem.From or SetCurrentItem.To)
-                new PersianDateRangePicker.RangeDate() {
+        PersianDateRangePicker persianDateRangePicker = new PersianDateRangePicker()
+                .setInitTillDate(InitDate.inputPersianDate(1, 3, 1397))
+                .setInitFromDate(InitDate.inputPersianDate(1, 1, 1397))
+                .setBackgroundColor(getResources().getColor(R.color.green))
+                .setButtonTextColor(getResources().getColor(R.color.white))
+                .setButtonTextColor(getResources().getColor(R.color.white))
+                .setButtonTextColor(getResources().getColor(R.color.white))
+                .setButtonTextColor(getResources().getColor(R.color.white))
+                .setButtonTextColor(getResources().getColor(R.color.white_smoke))
+                .setButtonTextColor(getResources().getColor(R.color.white))
+                .setWheelTextSize(9)
+                .setTypeface(face)
+                .setDoneText("تائید")
+                .setCanselText("انصراف")
+                .setDoneDrawable(getResources().getDrawable(R.drawable.ic_tick))
+                .setCanselDeawable(getResources().getDrawable(R.drawable.ic_mult))
+                .setCurrentItem(SetCurrentItem.From)
+                .setListener(new PersianDateRangePicker.RangeDate() {
                     @Override
                     public void From(int day, int month, int year) {
                         Toast.makeText(MainActivity.this, ""+day+"  "+month+"  "+year, Toast.LENGTH_SHORT).show();
@@ -86,14 +86,15 @@ You can try it out here [Sample Application](https://github.com/Far5had70/Persia
                     @Override
                     public void TillDate(int day, int month, int year) {
                         Toast.makeText(MainActivity.this, ""+day+"  "+month+"  "+year, Toast.LENGTH_SHORT).show();
+
                     }
 
                     @Override
                     public void cansel() {
-                        Toast.makeText(MainActivity.this, "Cansel", Toast.LENGTH_SHORT).show();
+
                     }
                 });
-        persianDateRangePicker.show(fragmentManager,"PersianDateRangePicker");
+        persianDateRangePicker.show(fragmentManager, "PersianDateRangePicker");
 ```
 
 
@@ -103,22 +104,22 @@ You can try it out here [Sample Application](https://github.com/Far5had70/Persia
 ```java
         Typeface face = Typeface.createFromAsset(getAssets(), "bsans.ttf");
         FragmentManager fragmentManager = getSupportFragmentManager();
-        PersianDatePicker persianDateRangePicker = new PersianDatePicker(
-                InitDate.inputPersianDate(1 , 1 , 1397) ,  // Init Date
-                getResources().getColor(R.color.green) ,  // Background Color
-                getResources().getColor(R.color.white) ,  // Button Text Color
-                getResources().getColor(R.color.white) ,  // Tab Text Color
-                getResources().getColor(R.color.white) ,  // Tab Selected Text Color
-                getResources().getColor(R.color.white) ,  // Tab Indicator Color
-                getResources().getColor(R.color.white_smoke) ,  // Wheel Text Color
-                getResources().getColor(R.color.white) ,  // Wheel Text Color Selected
-                20 ,  // Wheel Text Size
-                face ,  // type face
-                "تائید", // Done Button Text
-                "انصراف" , // Cansel Button Text
-                getResources().getDrawable(R.drawable.ic_tick),  // Done Button Image
-                getResources().getDrawable(R.drawable.ic_mult),  // Cansel Button Image
-                new PersianDatePicker.PickDate() {
+        PersianDatePicker persianDateRangePicker = new PersianDatePicker()
+                .setInitFromDate(InitDate.inputPersianDate(1, 1, 1397))
+                .setBackgroundColor(getResources().getColor(R.color.green))
+                .setButtonTextColor(getResources().getColor(R.color.white))
+                .setButtonTextColor(getResources().getColor(R.color.white))
+                .setButtonTextColor(getResources().getColor(R.color.white))
+                .setButtonTextColor(getResources().getColor(R.color.white))
+                .setButtonTextColor(getResources().getColor(R.color.white_smoke))
+                .setButtonTextColor(getResources().getColor(R.color.white))
+                .setWheelTextSize(9)
+                .setTypeface(face)
+                .setDoneText("تائید")
+                .setCanselText("انصراف")
+                .setDoneDrawable(getResources().getDrawable(R.drawable.ic_tick))
+                .setCanselDeawable(getResources().getDrawable(R.drawable.ic_mult))
+                .setListener(new PersianDatePicker.PickDate() {
                     @Override
                     public void Date(int day, int month, int year) {
                         Toast.makeText(MainActivity.this, ""+day+"  "+month+"  "+year, Toast.LENGTH_SHORT).show();
@@ -126,7 +127,7 @@ You can try it out here [Sample Application](https://github.com/Far5had70/Persia
 
                     @Override
                     public void Cansel() {
-                        Toast.makeText(MainActivity.this, "Cansel", Toast.LENGTH_SHORT).show();
+
                     }
                 });
         persianDateRangePicker.show(fragmentManager,"PersianDateRangePicker");

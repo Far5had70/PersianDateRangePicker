@@ -41,37 +41,38 @@ public class MainActivity extends AppCompatActivity {
 
         Typeface face = Typeface.createFromAsset(getAssets(), "bsans.ttf");
         FragmentManager fragmentManager = getSupportFragmentManager();
-        PersianDateRangePicker persianDateRangePicker = new PersianDateRangePicker(
-                InitDate.inputPersianDate(1, 1, 1397),
-                InitDate.inputPersianDate(1, 7, 1397),
-                getResources().getColor(R.color.green),
-                getResources().getColor(R.color.white),
-                getResources().getColor(R.color.white),
-                getResources().getColor(R.color.white),
-                getResources().getColor(R.color.white),
-                getResources().getColor(R.color.white_smoke),
-                getResources().getColor(R.color.white),
-                20,
-                face,
-                "تائید",
-                "بازنشانی" ,
-                getResources().getDrawable(R.drawable.ic_tick),
-                getResources().getDrawable(R.drawable.ic_mult),
-                SetCurrentItem.From ,
-                new PersianDateRangePicker.RangeDate() {
+        PersianDateRangePicker persianDateRangePicker = new PersianDateRangePicker()
+                .setInitTillDate(InitDate.inputPersianDate(1, 3, 1397))
+                .setInitFromDate(InitDate.inputPersianDate(1, 1, 1397))
+                .setBackgroundColor(getResources().getColor(R.color.green))
+                .setButtonTextColor(getResources().getColor(R.color.white))
+                .setButtonTextColor(getResources().getColor(R.color.white))
+                .setButtonTextColor(getResources().getColor(R.color.white))
+                .setButtonTextColor(getResources().getColor(R.color.white))
+                .setButtonTextColor(getResources().getColor(R.color.white_smoke))
+                .setButtonTextColor(getResources().getColor(R.color.white))
+                .setWheelTextSize(9)
+                .setTypeface(face)
+                .setDoneText("تائید")
+                .setCanselText("انصراف")
+                .setDoneDrawable(getResources().getDrawable(R.drawable.ic_tick))
+                .setCanselDeawable(getResources().getDrawable(R.drawable.ic_mult))
+                .setCurrentItem(SetCurrentItem.From)
+                .setListener(new PersianDateRangePicker.RangeDate() {
                     @Override
                     public void From(int day, int month, int year) {
-                        Toast.makeText(MainActivity.this, "" + day + "  " + month + "  " + year, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, ""+day+"  "+month+"  "+year, Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
                     public void TillDate(int day, int month, int year) {
-                        Toast.makeText(MainActivity.this, "" + day + "  " + month + "  " + year, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, ""+day+"  "+month+"  "+year, Toast.LENGTH_SHORT).show();
+
                     }
 
                     @Override
                     public void cansel() {
-                        Toast.makeText(MainActivity.this, "بازنشانی", Toast.LENGTH_SHORT).show();
+
                     }
                 });
         persianDateRangePicker.show(fragmentManager, "PersianDateRangePicker");
@@ -82,22 +83,22 @@ public class MainActivity extends AppCompatActivity {
 
         Typeface face = Typeface.createFromAsset(getAssets(), "bsans.ttf");
         FragmentManager fragmentManager = getSupportFragmentManager();
-        PersianDatePicker persianDateRangePicker = new PersianDatePicker(
-                InitDate.inputPersianDate(1 , 1 , 1397) ,
-                getResources().getColor(R.color.green) ,
-                getResources().getColor(R.color.white) ,
-                getResources().getColor(R.color.white) ,
-                getResources().getColor(R.color.white) ,
-                getResources().getColor(R.color.white) ,
-                getResources().getColor(R.color.white_smoke) ,
-                getResources().getColor(R.color.white) ,
-                20 ,
-                face ,
-                "تائید",
-                "انصراف" ,
-                getResources().getDrawable(R.drawable.ic_tick),
-                getResources().getDrawable(R.drawable.ic_mult),
-                new PersianDatePicker.PickDate() {
+        PersianDatePicker persianDateRangePicker = new PersianDatePicker()
+                .setInitFromDate(InitDate.inputPersianDate(1, 1, 1397))
+                .setBackgroundColor(getResources().getColor(R.color.green))
+                .setButtonTextColor(getResources().getColor(R.color.white))
+                .setButtonTextColor(getResources().getColor(R.color.white))
+                .setButtonTextColor(getResources().getColor(R.color.white))
+                .setButtonTextColor(getResources().getColor(R.color.white))
+                .setButtonTextColor(getResources().getColor(R.color.white_smoke))
+                .setButtonTextColor(getResources().getColor(R.color.white))
+                .setWheelTextSize(9)
+                .setTypeface(face)
+                .setDoneText("تائید")
+                .setCanselText("انصراف")
+                .setDoneDrawable(getResources().getDrawable(R.drawable.ic_tick))
+                .setCanselDeawable(getResources().getDrawable(R.drawable.ic_mult))
+                .setListener(new PersianDatePicker.PickDate() {
                     @Override
                     public void Date(int day, int month, int year) {
                         Toast.makeText(MainActivity.this, ""+day+"  "+month+"  "+year, Toast.LENGTH_SHORT).show();

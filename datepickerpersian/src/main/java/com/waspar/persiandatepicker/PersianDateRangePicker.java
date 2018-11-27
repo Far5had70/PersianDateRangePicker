@@ -1,7 +1,9 @@
 package com.waspar.persiandatepicker;
 
 import android.annotation.SuppressLint;
+import android.graphics.Color;
 import android.graphics.Typeface;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.support.design.widget.TabLayout;
@@ -11,6 +13,7 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -21,191 +24,14 @@ import com.waspar.persiandatepicker.util.ShamsiDate;
 @SuppressLint("ValidFragment")
 public class PersianDateRangePicker extends DialogFragment implements View.OnClickListener {
 
-    @SuppressLint("ValidFragment")
-    public PersianDateRangePicker(String initFromDate, String initTillDate, RangeDate rangeDate) {
-        this.rangeDate = rangeDate;
-        InitFromDate = initFromDate;
-        InitTillDate = initTillDate;
-    }
-
-    @SuppressLint("ValidFragment")
-    public PersianDateRangePicker(
-            String initFromDate,
-            String initTillDate,
-            int backgroundColor,
-            int ButtonTextColor,
-            int TabTextColor,
-            int TabSelectedTextColor,
-            int TabIndicatorColor,
-            int WheelTextColor,
-            int WheelTextColorSelected,
-            int WheelTextSize,
-            RangeDate rangeDate) {
-
-        this.rangeDate = rangeDate;
-        InitFromDate = initFromDate;
-        InitTillDate = initTillDate;
-        this.backgroundColor = backgroundColor;
-        this.ButtonTextColor = ButtonTextColor;
-        this.TabTextColor = TabTextColor;
-        this.TabSelectedTextColor = TabSelectedTextColor;
-        this.TabIndicatorColor = TabIndicatorColor;
-        this.WheelTextColor = WheelTextColor;
-        this.WheelTextColorSelected = WheelTextColorSelected;
-        this.WheelTextSize = WheelTextSize;
-    }
-
-    @SuppressLint("ValidFragment")
-    public PersianDateRangePicker(
-            String initFromDate,
-            String initTillDate,
-            int backgroundColor,
-            int ButtonTextColor,
-            int TabTextColor,
-            int TabSelectedTextColor,
-            int TabIndicatorColor,
-            int WheelTextColor,
-            int WheelTextColorSelected,
-            int WheelTextSize,
-            Typeface typeface ,
-            RangeDate rangeDate) {
-
-        this.rangeDate = rangeDate;
-        InitFromDate = initFromDate;
-        InitTillDate = initTillDate;
-        this.backgroundColor = backgroundColor;
-        this.ButtonTextColor = ButtonTextColor;
-        this.TabTextColor = TabTextColor;
-        this.TabSelectedTextColor = TabSelectedTextColor;
-        this.TabIndicatorColor = TabIndicatorColor;
-        this.WheelTextColor = WheelTextColor;
-        this.WheelTextColorSelected = WheelTextColorSelected;
-        this.WheelTextSize = WheelTextSize;
-        this.typeface = typeface;
-    }
-
-    @SuppressLint("ValidFragment")
-    public PersianDateRangePicker(
-            String initFromDate,
-            String initTillDate,
-            int backgroundColor,
-            int ButtonTextColor,
-            int TabTextColor,
-            int TabSelectedTextColor,
-            int TabIndicatorColor,
-            int WheelTextColor,
-            int WheelTextColorSelected,
-            int WheelTextSize,
-            Typeface typeface ,
-            String DoneText ,
-            String CanselText ,
-            RangeDate rangeDate) {
-
-        this.rangeDate = rangeDate;
-        InitFromDate = initFromDate;
-        InitTillDate = initTillDate;
-        this.backgroundColor = backgroundColor;
-        this.ButtonTextColor = ButtonTextColor;
-        this.TabTextColor = TabTextColor;
-        this.TabSelectedTextColor = TabSelectedTextColor;
-        this.TabIndicatorColor = TabIndicatorColor;
-        this.WheelTextColor = WheelTextColor;
-        this.WheelTextColorSelected = WheelTextColorSelected;
-        this.WheelTextSize = WheelTextSize;
-        this.typeface = typeface;
-        this.DoneText = DoneText;
-        this.CanselText = CanselText;
-    }
-
-    @SuppressLint("ValidFragment")
-    public PersianDateRangePicker(
-            String initFromDate,
-            String initTillDate,
-            int backgroundColor,
-            int ButtonTextColor,
-            int TabTextColor,
-            int TabSelectedTextColor,
-            int TabIndicatorColor,
-            int WheelTextColor,
-            int WheelTextColorSelected,
-            int WheelTextSize,
-            Typeface typeface ,
-            String DoneText ,
-            String CanselText ,
-            Drawable DoneDrawable ,
-            Drawable CanselDeawable ,
-            RangeDate rangeDate) {
-
-        this.rangeDate = rangeDate;
-        InitFromDate = initFromDate;
-        InitTillDate = initTillDate;
-        this.backgroundColor = backgroundColor;
-        this.ButtonTextColor = ButtonTextColor;
-        this.TabTextColor = TabTextColor;
-        this.TabSelectedTextColor = TabSelectedTextColor;
-        this.TabIndicatorColor = TabIndicatorColor;
-        this.WheelTextColor = WheelTextColor;
-        this.WheelTextColorSelected = WheelTextColorSelected;
-        this.WheelTextSize = WheelTextSize;
-        this.typeface = typeface;
-        this.DoneText = DoneText;
-        this.CanselText = CanselText;
-        this.DoneDrawable = DoneDrawable;
-        this.CanselDeawable = CanselDeawable;
-    }
-
-    @SuppressLint("ValidFragment")
-    public PersianDateRangePicker(
-            String initFromDate,
-            String initTillDate,
-            int backgroundColor,
-            int ButtonTextColor,
-            int TabTextColor,
-            int TabSelectedTextColor,
-            int TabIndicatorColor,
-            int WheelTextColor,
-            int WheelTextColorSelected,
-            int WheelTextSize,
-            Typeface typeface ,
-            String DoneText ,
-            String CanselText ,
-            Drawable DoneDrawable ,
-            Drawable CanselDeawable ,
-            int SetCurrentItem ,
-            RangeDate rangeDate) {
-
-        this.rangeDate = rangeDate;
-        InitFromDate = initFromDate;
-        InitTillDate = initTillDate;
-        this.backgroundColor = backgroundColor;
-        this.ButtonTextColor = ButtonTextColor;
-        this.TabTextColor = TabTextColor;
-        this.TabSelectedTextColor = TabSelectedTextColor;
-        this.TabIndicatorColor = TabIndicatorColor;
-        this.WheelTextColor = WheelTextColor;
-        this.WheelTextColorSelected = WheelTextColorSelected;
-        this.WheelTextSize = WheelTextSize;
-        this.typeface = typeface;
-        this.DoneText = DoneText;
-        this.CanselText = CanselText;
-        this.DoneDrawable = DoneDrawable;
-        this.SetCurrentItem = SetCurrentItem;
-        this.CanselDeawable = CanselDeawable;
-    }
-
-    @SuppressLint("ValidFragment")
-    public PersianDateRangePicker(RangeDate rangeDate) {
-        this.rangeDate = rangeDate;
-    }
-
     private TabLayout tabLayout;
     private ViewPager viewPager;
     private TabAdapterDateRangePicker adapter;
     private View Cansel, Ok;
     private TextView DoneTxt, CanselTxt;
-    private String DoneText , CanselText;
+    private String DoneText, CanselText;
     private ShamsiDate shamsiDate = new ShamsiDate();
-    private ImageView DoneImg , CanselImg;
+    private ImageView DoneImg, CanselImg;
 
     private int backgroundColor = -1;
     private int ButtonTextColor = -1;
@@ -233,13 +59,14 @@ public class PersianDateRangePicker extends DialogFragment implements View.OnCli
     private RangeDate rangeDate;
     private String InitFromDate;
     private String InitTillDate;
-    private View view, root;
+    private View view, root, root2;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.layout_persian_dare_range_picker, container, false);
-        setCorner();
-        init(view);
+        getDialog().requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getDialog().getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        init();
         setupTab();
         if (InitFromDate == null) {
             InitFromDate = shamsiDate.getCurrentShamsidate();
@@ -248,25 +75,12 @@ public class PersianDateRangePicker extends DialogFragment implements View.OnCli
             InitTillDate = shamsiDate.getCurrentShamsidate();
         }
 
-        if (backgroundColor != -1) {
-            tabLayout.setBackgroundColor(backgroundColor);
-
-            getDialog().getWindow().setBackgroundDrawableResource(android.R.color.transparent);
-
-            GradientDrawable bgShape = new GradientDrawable();
-            bgShape.setCornerRadii(new float[]{80, 80, 80, 80, 80, 80, 80, 80});
-            bgShape.setCornerRadius(80);
-            bgShape.setColor(backgroundColor);
-            root.setBackground(bgShape);
-            tabLayout.setBackground(bgShape);
-        }
-
         if (ButtonTextColor != -1) {
             DoneTxt.setTextColor(ButtonTextColor);
             CanselTxt.setTextColor(ButtonTextColor);
         }
 
-        if (typeface != null){
+        if (typeface != null) {
             DoneTxt.setTypeface(typeface);
             CanselTxt.setTypeface(typeface);
         }
@@ -275,19 +89,19 @@ public class PersianDateRangePicker extends DialogFragment implements View.OnCli
             tabLayout.setSelectedTabIndicatorColor(TabIndicatorColor);
         }
 
-        if (DoneText != null){
+        if (DoneText != null) {
             DoneTxt.setText(DoneText);
         }
 
-        if (CanselText != null){
+        if (CanselText != null) {
             CanselTxt.setText(CanselText);
         }
 
-        if (DoneDrawable != null){
+        if (DoneDrawable != null) {
             DoneImg.setImageDrawable(DoneDrawable);
         }
 
-        if (CanselDeawable != null){
+        if (CanselDeawable != null) {
             CanselImg.setImageDrawable(CanselDeawable);
         }
 
@@ -303,17 +117,14 @@ public class PersianDateRangePicker extends DialogFragment implements View.OnCli
         return view;
     }
 
-    private void setCorner() {
-        //  getDialog().getWindow().setBackgroundDrawableResource(R.drawable.dialog_rounded_bg);
-    }
-
-    private void init(View view) {
+    private void init() {
         viewPager = view.findViewById(R.id.viewPager);
         tabLayout = view.findViewById(R.id.tab_layout);
         DoneImg = view.findViewById(R.id.img_tick);
         CanselImg = view.findViewById(R.id.img_mult);
         Cansel = view.findViewById(R.id.cansel);
         root = view.findViewById(R.id.root);
+        root2 = view.findViewById(R.id.root2);
         DoneTxt = view.findViewById(R.id.layout_persian_dare_range_picker_done_txt);
         CanselTxt = view.findViewById(R.id.layout_persian_dare_range_picker_cansel_txt);
         Cansel.setOnClickListener(this);
@@ -328,19 +139,25 @@ public class PersianDateRangePicker extends DialogFragment implements View.OnCli
         params.width = WindowManager.LayoutParams.MATCH_PARENT - 1;
         params.height = WindowManager.LayoutParams.WRAP_CONTENT;
         getDialog().getWindow().setAttributes((android.view.WindowManager.LayoutParams) params);
-
+        GradientDrawable bgShape = new GradientDrawable();
+        bgShape.setCornerRadius(20);
         if (backgroundColor != -1) {
-            tabLayout.setBackgroundColor(backgroundColor);
-
-            getDialog().getWindow().setBackgroundDrawableResource(android.R.color.transparent);
-
-            GradientDrawable bgShape = new GradientDrawable();
-            bgShape.setCornerRadii(new float[]{80, 80, 80, 80, 80, 80, 80, 80});
-            bgShape.setCornerRadius(80);
             bgShape.setColor(backgroundColor);
-            root.setBackground(bgShape);
-            tabLayout.setBackground(bgShape);
+        } else {
+            bgShape.setColor(getActivity().getResources().getColor(R.color.white));
         }
+        root.setBackground(bgShape);
+        root2.setBackground(bgShape);
+
+        GradientDrawable bgShape2 = new GradientDrawable();
+        bgShape2.setCornerRadius(20);
+        if (backgroundColor != -1) {
+            bgShape2.setColor(backgroundColor);
+        } else {
+            bgShape2.setColor(getActivity().getResources().getColor(R.color.white));
+        }
+        tabLayout.setBackground(bgShape2);
+
     }
 
     @Override
@@ -393,10 +210,10 @@ public class PersianDateRangePicker extends DialogFragment implements View.OnCli
             }
         });
 
-        if (typeface != null){
+        if (typeface != null) {
             for (int i = 0; i < tabLayout.getTabCount(); i++) {
                 //noinspection ConstantConditions
-                TextView tv = (TextView)LayoutInflater.from(getActivity()).inflate(R.layout.custom_tab_item,null);
+                TextView tv = (TextView) LayoutInflater.from(getActivity()).inflate(R.layout.custom_tab_item, null);
                 tv.setTypeface(typeface);
 
                 if (TabTextColor != -1 && TabSelectedTextColor != -1) {
@@ -416,4 +233,90 @@ public class PersianDateRangePicker extends DialogFragment implements View.OnCli
 
         void cansel();
     }
+
+    public PersianDateRangePicker setInitFromDate(String InitFromDate) {
+        this.InitFromDate = InitFromDate;
+        return this;
+    }
+
+    public PersianDateRangePicker setInitTillDate(String InitTillDate) {
+        this.InitTillDate = InitTillDate;
+        return this;
+    }
+
+    public PersianDateRangePicker setBackgroundColor(int backgroundColor) {
+        this.backgroundColor = backgroundColor;
+        return this;
+    }
+
+    public PersianDateRangePicker setButtonTextColor(int ButtonTextColor) {
+        this.ButtonTextColor = ButtonTextColor;
+        return this;
+    }
+
+    public PersianDateRangePicker setTabTextColor(int TabTextColor) {
+        this.TabTextColor = TabTextColor;
+        return this;
+    }
+
+    public PersianDateRangePicker setTabSelectedTextColor(int TabSelectedTextColor) {
+        this.TabSelectedTextColor = TabSelectedTextColor;
+        return this;
+    }
+
+    public PersianDateRangePicker setTabIndicatorColor(int TabIndicatorColor) {
+        this.TabIndicatorColor = TabIndicatorColor;
+        return this;
+    }
+
+    public PersianDateRangePicker setWheelTextColor(int WheelTextColor) {
+        this.WheelTextColor = WheelTextColor;
+        return this;
+    }
+
+    public PersianDateRangePicker setWheelTextColorSelected(int WheelTextColorSelected) {
+        this.WheelTextColorSelected = WheelTextColorSelected;
+        return this;
+    }
+
+    public PersianDateRangePicker setWheelTextSize(int WheelTextSize) {
+        this.WheelTextSize = WheelTextSize;
+        return this;
+    }
+
+    public PersianDateRangePicker setTypeface(Typeface typeface) {
+        this.typeface = typeface;
+        return this;
+    }
+
+    public PersianDateRangePicker setDoneText(String DoneText) {
+        this.DoneText = DoneText;
+        return this;
+    }
+
+    public PersianDateRangePicker setCanselText(String CanselText) {
+        this.CanselText = CanselText;
+        return this;
+    }
+
+    public PersianDateRangePicker setDoneDrawable(Drawable DoneDrawable) {
+        this.DoneDrawable = DoneDrawable;
+        return this;
+    }
+
+    public PersianDateRangePicker setCanselDeawable(Drawable CanselDeawable) {
+        this.CanselDeawable = CanselDeawable;
+        return this;
+    }
+
+    public PersianDateRangePicker setCurrentItem(int SetCurrentItem) {
+        this.SetCurrentItem = SetCurrentItem;
+        return this;
+    }
+
+    public PersianDateRangePicker setListener(RangeDate rangeDate) {
+        this.rangeDate = rangeDate;
+        return this;
+    }
+
 }
