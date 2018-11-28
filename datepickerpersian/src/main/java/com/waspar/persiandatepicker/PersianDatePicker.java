@@ -41,6 +41,7 @@ public class PersianDatePicker extends DialogFragment implements View.OnClickLis
     public static int WheelTextColor = -1;
     public static int WheelTextColorSelected = -1;
     public static int WheelTextSize = -1;
+    public int CornerRadius = 20;
 
     private Drawable DoneDrawable;
     private Drawable CanselDeawable;
@@ -139,7 +140,7 @@ public class PersianDatePicker extends DialogFragment implements View.OnClickLis
         params.height = WindowManager.LayoutParams.WRAP_CONTENT;
         getDialog().getWindow().setAttributes((android.view.WindowManager.LayoutParams) params);
         GradientDrawable bgShape = new GradientDrawable();
-        bgShape.setCornerRadius(20);
+        bgShape.setCornerRadius(CornerRadius);
         if (backgroundColor != -1) {
             bgShape.setColor(backgroundColor);
         } else {
@@ -148,7 +149,7 @@ public class PersianDatePicker extends DialogFragment implements View.OnClickLis
         root.setBackground(bgShape);
 
         GradientDrawable bgShape2 = new GradientDrawable();
-        bgShape2.setCornerRadius(20);
+        bgShape2.setCornerRadius(CornerRadius);
         if (backgroundColor != -1) {
             bgShape2.setColor(backgroundColor);
         } else {
@@ -298,6 +299,11 @@ public class PersianDatePicker extends DialogFragment implements View.OnClickLis
 
     public PersianDatePicker setListener(PickDate pickDate) {
         this.rangeDate = pickDate;
+        return this;
+    }
+
+    public PersianDatePicker setCornerRadius(int CornerRadius) {
+        this.CornerRadius = CornerRadius;
         return this;
     }
     
