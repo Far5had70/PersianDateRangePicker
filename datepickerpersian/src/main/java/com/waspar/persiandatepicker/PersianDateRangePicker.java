@@ -210,6 +210,7 @@ public class PersianDateRangePicker extends DialogFragment implements View.OnCli
 
             }
         });
+        tabLayout.setupWithViewPager(viewPager);
 
         if (typeface != null) {
             for (int i = 0; i < tabLayout.getTabCount(); i++) {
