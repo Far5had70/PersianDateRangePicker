@@ -24,7 +24,7 @@ import com.waspar.persiandatepicker.util.ShamsiDate;
 @SuppressLint("ValidFragment")
 public class PersianDateRangePicker extends DialogFragment implements View.OnClickListener {
 
-    private TabLayout tabLayout;
+    //private TabLayout tabLayout;
     private ViewPager viewPager;
     private TabAdapterDateRangePicker adapter;
     private View Cansel, Ok;
@@ -32,6 +32,7 @@ public class PersianDateRangePicker extends DialogFragment implements View.OnCli
     private String DoneText, CanselText;
     private ShamsiDate shamsiDate = new ShamsiDate();
     private ImageView DoneImg, CanselImg;
+    private TextView dateFromTv , dateToTv;
 
     private int backgroundColor = -1;
     private int ButtonTextColor = -1;
@@ -84,10 +85,12 @@ public class PersianDateRangePicker extends DialogFragment implements View.OnCli
         if (typeface != null) {
             DoneTxt.setTypeface(typeface);
             CanselTxt.setTypeface(typeface);
+            dateToTv.setTypeface(typeface);
+            dateFromTv.setTypeface(typeface);
         }
 
         if (TabIndicatorColor != -1) {
-            tabLayout.setSelectedTabIndicatorColor(TabIndicatorColor);
+            //tabLayout.setSelectedTabIndicatorColor(TabIndicatorColor);
         }
 
         if (DoneText != null) {
@@ -120,7 +123,9 @@ public class PersianDateRangePicker extends DialogFragment implements View.OnCli
 
     private void init() {
         viewPager = view.findViewById(R.id.viewPager);
-        tabLayout = view.findViewById(R.id.tab_layout);
+        //tabLayout = view.findViewById(R.id.tab_layout);
+        dateFromTv = view.findViewById(R.id.textView);
+        dateToTv = view.findViewById(R.id.textView2);
         DoneImg = view.findViewById(R.id.img_tick);
         CanselImg = view.findViewById(R.id.img_mult);
         Cansel = view.findViewById(R.id.cansel);
@@ -131,6 +136,8 @@ public class PersianDateRangePicker extends DialogFragment implements View.OnCli
         Cansel.setOnClickListener(this);
         Ok = view.findViewById(R.id.ok);
         Ok.setOnClickListener(this);
+        dateFromTv.setOnClickListener(this);
+        dateToTv.setOnClickListener(this);
     }
 
     @Override
@@ -157,7 +164,7 @@ public class PersianDateRangePicker extends DialogFragment implements View.OnCli
         } else {
             bgShape2.setColor(getActivity().getResources().getColor(R.color.white));
         }
-        tabLayout.setBackground(bgShape2);
+        //tabLayout.setBackground(bgShape2);
 
     }
 
@@ -168,6 +175,14 @@ public class PersianDateRangePicker extends DialogFragment implements View.OnCli
             canselButton();
         } else if (i == R.id.ok) {
             okButton();
+        } else if (i == R.id.textView2) {
+            dateFromTv.setTextColor(getResources().getColor(R.color.white_smoke));
+            dateToTv.setTextColor(getResources().getColor(R.color.white));
+            viewPager.setCurrentItem(0);
+        } else if (i == R.id.textView) {
+            dateFromTv.setTextColor(getResources().getColor(R.color.white));
+            dateToTv.setTextColor(getResources().getColor(R.color.white_smoke));
+            viewPager.setCurrentItem(1);
         }
     }
 
@@ -183,48 +198,71 @@ public class PersianDateRangePicker extends DialogFragment implements View.OnCli
     }
 
     private void setupTab() {
-        adapter = new TabAdapterDateRangePicker(getChildFragmentManager(), tabLayout.getTabCount());
+        adapter = new TabAdapterDateRangePicker(getChildFragmentManager(), 2);
         viewPager.setAdapter(adapter);
-        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+        //viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         viewPager.setCurrentItem(SetCurrentItem);
-        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                switch (tab.getPosition()) {
-                    case 0:
-                        viewPager.setCurrentItem(0);
-                        break;
-                    case 1:
-                        viewPager.setCurrentItem(1);
-                        break;
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                if (position == 0) {
+                    dateFromTv.setTextColor(getResources().getColor(R.color.white_smoke));
+                    dateToTv.setTextColor(getResources().getColor(R.color.white));
+                    viewPager.setCurrentItem(0);
+                } else if (position == 1) {
+                    dateFromTv.setTextColor(getResources().getColor(R.color.white));
+                    dateToTv.setTextColor(getResources().getColor(R.color.white_smoke));
+                    viewPager.setCurrentItem(1);
                 }
             }
 
             @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-
-            }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
+            public void onPageScrollStateChanged(int state) {
 
             }
         });
-        tabLayout.setupWithViewPager(viewPager);
+//        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+//            @Override
+//            public void onTabSelected(TabLayout.Tab tab) {
+//                switch (tab.getPosition()) {
+//                    case 0:
+//                        viewPager.setCurrentItem(0);
+//                        break;
+//                    case 1:
+//                        viewPager.setCurrentItem(1);
+//                        break;
+//                }
+//            }
+//
+//            @Override
+//            public void onTabUnselected(TabLayout.Tab tab) {
+//
+//            }
+//
+//            @Override
+//            public void onTabReselected(TabLayout.Tab tab) {
+//
+//            }
+//        });
 
-        if (typeface != null) {
-            for (int i = 0; i < tabLayout.getTabCount(); i++) {
-                //noinspection ConstantConditions
-                TextView tv = (TextView) LayoutInflater.from(getActivity()).inflate(R.layout.custom_tab_item, null);
-                tv.setTypeface(typeface);
-
-                if (TabTextColor != -1 && TabSelectedTextColor != -1) {
-                    tv.setTextColor(TabTextColor);
-                }
-
-                tabLayout.getTabAt(i).setCustomView(tv);
-            }
-        }
+//        if (typeface != null) {
+//            for (int i = 0; i < tabLayout.getTabCount(); i++) {
+//                //noinspection ConstantConditions
+//                TextView tv = (TextView) LayoutInflater.from(getActivity()).inflate(R.layout.custom_tab_item, null);
+//                tv.setTypeface(typeface);
+//
+//                if (TabTextColor != -1 && TabSelectedTextColor != -1) {
+//                    tv.setTextColor(TabTextColor);
+//                }
+//
+//                tabLayout.getTabAt(i).setCustomView(tv);
+//            }
+//        }
 
     }
 
