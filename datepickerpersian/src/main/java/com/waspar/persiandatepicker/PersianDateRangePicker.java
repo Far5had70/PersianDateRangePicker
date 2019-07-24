@@ -202,6 +202,13 @@ public class PersianDateRangePicker extends DialogFragment implements View.OnCli
         viewPager.setAdapter(adapter);
         //viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         viewPager.setCurrentItem(SetCurrentItem);
+        if (SetCurrentItem == 1){
+            dateFromTv.setTextColor(getResources().getColor(R.color.white));
+            dateToTv.setTextColor(getResources().getColor(R.color.white_smoke));
+        }else {
+            dateFromTv.setTextColor(getResources().getColor(R.color.white_smoke));
+            dateToTv.setTextColor(getResources().getColor(R.color.white));
+        }
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
