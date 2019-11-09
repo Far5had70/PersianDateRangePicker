@@ -9,6 +9,7 @@ import android.graphics.drawable.GradientDrawable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.DialogFragment;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -196,12 +197,8 @@ public class PersianDateRangePicker extends DialogFragment implements View.OnCli
         viewPager.setCurrentItem(SetCurrentItem);
         if (SetCurrentItem == 1){
             viewPager.setCurrentItem(SetCurrentItem);
-//            dateFromTv.setTextColor(getResources().getColor(R.color.white));
-//            dateToTv.setTextColor(getResources().getColor(R.color.white_smoke));
         }else {
             viewPager.setCurrentItem(SetCurrentItem);
-//            dateFromTv.setTextColor(getResources().getColor(R.color.white_smoke));
-//            dateToTv.setTextColor(getResources().getColor(R.color.white));
         }
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -212,12 +209,8 @@ public class PersianDateRangePicker extends DialogFragment implements View.OnCli
             @Override
             public void onPageSelected(int position) {
                 if (position == 0) {
-//                    dateFromTv.setTextColor(getResources().getColor(R.color.white_smoke));
-//                    dateToTv.setTextColor(getResources().getColor(R.color.white));
                     viewPager.setCurrentItem(0);
                 } else if (position == 1) {
-//                    dateFromTv.setTextColor(getResources().getColor(R.color.white));
-//                    dateToTv.setTextColor(getResources().getColor(R.color.white_smoke));
                     viewPager.setCurrentItem(1);
                 }
             }
@@ -250,21 +243,7 @@ public class PersianDateRangePicker extends DialogFragment implements View.OnCli
 
             }
         });
-
-//        if (typeface != null) {
-//            for (int i = 0; i < tabLayout.getTabCount(); i++) {
-//                //noinspection ConstantConditions
-//                TextView tv = (TextView) LayoutInflater.from(getActivity()).inflate(R.layout.custom_tab_item, null);
-//                tv.setTypeface(typeface);
-//
-//                if (TabTextColor != -1 && TabSelectedTextColor != -1) {
-//                    tv.setTextColor(TabTextColor);
-//                }
-//
-//                tabLayout.getTabAt(i).setCustomView(tv);
-//            }
-//        }
-
+        tabLayout.setTabTextColors(TabTextColor , TabSelectedTextColor);
     }
 
     public interface RangeDate {
